@@ -6,6 +6,7 @@ from constants import *
 from player import Player
 from asteroid import Asteroid
 from asteroidfield import AsteroidField
+from shot import Shot
 
 
 def main():
@@ -16,13 +17,15 @@ def main():
     #   creates a clock to check the framerate
     clock = pygame.time.Clock()
     
-    #   creates a group for updatable, drawable and asteroids
+    #   creates a groups for objects to inhabit
     updatable = pygame.sprite.Group()
     drawable = pygame.sprite.Group()
     asteroids = pygame.sprite.Group()
+    shots = pygame.sprite.Group()
 
     #   Assigns the various objects to their groups
     Asteroid.containers = (asteroids, updatable, drawable)
+    Shot.containers = (shots, updatable, drawable)
     AsteroidField.containers = (updatable)
     #   creates the 'asteroid_field' object
     asteroid_field = AsteroidField()
