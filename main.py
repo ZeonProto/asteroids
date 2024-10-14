@@ -2,6 +2,7 @@
 import pygame
 #   imports everything from the constants.py file
 from constants import *
+from player import Player
 
 
 def main():
@@ -11,6 +12,8 @@ def main():
     screen = pygame.display.set_mode((SCREEN_WIDTH, SCREEN_HEIGHT))
     #   creates a clock to check the framerate
     clock = pygame.time.Clock()
+    
+    player = Player(SCREEN_WIDTH / 2, SCREEN_HEIGHT / 2)
     #   delta time
     dt = 0
 
@@ -22,6 +25,8 @@ def main():
         
         #   gives a background to the screen
         screen.fill("black")
+        
+        player.draw(screen)
         #   function to refresh the display
         pygame.display.flip()
 
