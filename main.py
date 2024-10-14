@@ -1,18 +1,32 @@
+#   imports the pygame library
 import pygame
+#   imports everything from the constants.py file
 from constants import *
 
 
 def main():
+    #   initializes pygame
     pygame.init()
+    #   sets the screen size
     screen = pygame.display.set_mode((SCREEN_WIDTH, SCREEN_HEIGHT))
+    #   creates a clock to check the framerate
+    clock = pygame.time.Clock()
+    #   delta time
+    dt = 0
 
+    #   infinite loop to make the game run
     while True:
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
                 return
         
-        screen.fill(0)
+        #   gives a background to the screen
+        screen.fill("black")
+        #   function to refresh the display
         pygame.display.flip()
+
+        #   caps the fps at 60 and adds it to the delta time
+        dt = clock.tick(60) / 1000
 
 
 if __name__ == "__main__":
