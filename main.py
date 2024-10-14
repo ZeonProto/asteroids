@@ -2,7 +2,7 @@
 import pygame
 #   imports everything from the constants.py file
 from constants import *
-#   imports the 'Player' class from player.py
+#   imports classes for other files
 from player import Player
 from asteroid import Asteroid
 from asteroidfield import AsteroidField
@@ -41,10 +41,15 @@ def main():
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
                 return
-        
+            
         #   updates the updatable objects based on input
         for obj in updatable:
             obj.update(dt)
+
+        for asteroid in asteroids:
+            if asteroid.collision(player) == True:
+                print("Game Over!")
+                return pygame.QUIT
         
         #   gives a background to the screen
         screen.fill("black")
