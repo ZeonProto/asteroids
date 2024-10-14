@@ -56,7 +56,7 @@ def main():
             
             for shot in shots:
                 if shot.collision(asteroid) == True:
-                    shot.kill(), asteroid.kill()
+                    shot.kill(), asteroid.split()
         
         #   gives a background to the screen
         screen.fill("black")
